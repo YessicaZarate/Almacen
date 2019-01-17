@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
-namespace Almacén.Models
+namespace Almacén.ViewModels
 {
-    public class Products
+    public class CreateProductsVM
     {
         [Key]
         public int ProdId { get; set; }
@@ -31,19 +32,7 @@ namespace Almacén.Models
         public int BrandId { get; set; }
 
         public int LocationId { get; set; }
-
-        [ForeignKey("LocationId")]
-        public virtual Locations Locations { get; set; }
-
-        //[ForeignKey("ProvId")]
-        //public virtual Providers Providers { get; set; }
-
-        //[ForeignKey("BrandId")]
-        //public virtual Brands Brands { get; set; }
-
-        //public string Country { get; set; } //From
-
-        //public string Provider { get; set; }
+        public IEnumerable<SelectListItem> Locations { get; set; }
 
         public int Warranty { get; set; } //In weeks
 
